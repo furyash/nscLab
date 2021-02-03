@@ -2,27 +2,27 @@ import java.util.*;
 
 public class oneTimePad {
 
-    static char[] shuffleAlpha(char[] array)
+    static char[] shuffleAlpha(char[] arr)
     {
-        int index; char temp;
-        Random random = new Random();
+        int n; char temp;
+        Random rnd = new Random();
         for (int i = 0; i < 26; i++)
         {
-            index = random.nextInt(i+1);
-            temp = array[index];
-            array[index] = array[i];
-            array[i] = temp;
+            n = rnd.nextInt(i+1);
+            temp = arr[n];
+            arr[n] = arr[i];
+            arr[i] = temp;
         }
-        return array;
+        return arr;
     }
 
     static void encryption(){
         int i,ch;
         String text, cipher = "", keyOut="";
-        char[] alphaChar, keyChar;
-        alphaChar = keyChar = new char[26];
-        for (i = 97; i < 123; i++) alphaChar[i-97] = (char)i;
-        keyChar = shuffleAlpha(alphaChar);
+        char[] alpha, keyChar;
+        alpha = keyChar = new char[26];
+        for (i = 97; i < 123; i++) alpha[i-97] = (char)i;
+        keyChar = shuffleAlpha(alpha);
         String key = new String(keyChar);
 
         Scanner sc = new Scanner(System.in);

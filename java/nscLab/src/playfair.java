@@ -72,23 +72,20 @@ public class playfair {
         String alpha = "";
         for (i = 97; i < 122; i++) alpha += (char)i;
         
-        matrixArr = matrixArr + key.charAt(0);
+        matrixArr += key.charAt(0);
         matrixArr = inMatrix(matrixArr,key);
         matrixArr = inMatrix(matrixArr,alpha);
 
         for ( i = 0; i < 5; i++) 
             for ( j = 0; j < 5; j++) 
-                matrix[i] = matrix[i] + matrixArr.charAt(k++);
+                matrix[i] += matrixArr.charAt(k++);
 
-        for ( i = 0; i < text.length(); i++) {
-            for ( j = 0; j < 5; j++) {
-                for ( k = 0; k < 5; k++) {
-                    if (text.charAt(i) == matrix[j].charAt(k)){
-                        pos[i][0] = j; pos[i][1] = k;
-                    }
-                }   
-            }
-        }
+        for ( i = 0; i < text.length(); i++)
+            for ( j = 0; j < 5; j++)
+                for ( k = 0; k < 5; k++)
+                    if (text.charAt(i) == matrix[j].charAt(k))
+                    {    pos[i][0] = j; pos[i][1] = k;      }
+    
         System.out.println("1)Encryption 2) Decryption : ");
         int n = sc.nextInt();
         if (n == 1) encrypt(matrix, pos, text.length());
