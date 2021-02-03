@@ -59,7 +59,7 @@ public class playfair {
     
     public static void main(String[] args) throws Exception {
         String matrix[]={"","","","",""};
-        String matrixArr = "", cipher="";
+        String matrixArr = "";
         int i = 0, j = 0, k = 0;
 
         Scanner sc = new Scanner(System.in);
