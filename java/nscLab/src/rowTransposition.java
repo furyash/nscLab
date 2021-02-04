@@ -14,9 +14,9 @@ public class rowTransposition {
         System.out.println("CipherText : "+cipher);
     }
     static void decryption(String cipher, String key, int x, int y){
-        String text = ""; int i,j,k=0;
+        String ckey, text = ""; int i,j,k=0;
         char[] skey =  key.toCharArray();
-        Arrays.sort(skey); String ckey = new String(skey);
+        Arrays.sort(skey); ckey = new String(skey);
 
         char[][] table = new char[y][x]; 
         for (i = 0; i < x; i++) for (j = 0; j < y; j++)
