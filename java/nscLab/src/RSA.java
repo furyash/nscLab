@@ -20,16 +20,16 @@ public class RSA {
         while (e < phin)
             if (gcd(++e, phin) == 1)
                 break;
-        System.out.println("Public Key : ("+e+", "+n+")");
+        System.out.println("Public Key  : ("+e+", "+n+")");
         while (d < phin)
             if ((++d * e)% phin == 1)
                 break;
         System.out.println("Private Key : ("+d+", "+n+")");
         
         cipher = text.pow(e).mod(n);
-        System.out.println("Ciphertext : "+ cipher);
+        System.out.println("Ciphertext  : "+ cipher);
         text = cipher.pow(d).mod(n);
-        System.out.println("Plaintext : "+ text);
+        System.out.println("Plaintext   : "+ text);
 
     }
 }

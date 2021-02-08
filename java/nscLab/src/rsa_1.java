@@ -1,19 +1,17 @@
-package mlab;
-
 import java.util.Scanner;
 
 public class rsa {
 
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
-		int msg = in.nextInt();
+		long msg = in.nextLong();
 		System.out.println("message: "+msg);
 		System.out.println("enter 2 prime numbers: ");
-		int p = in.nextInt();
-		int q = in.nextInt();
+		long p = in.nextLong();
+		long q = in.nextLong();
 		
-		int n = p*q,phin = (p-1)*(q-1);
-		int e=2;
+		long n = p*q,phin = (p-1)*(q-1);
+		long e=2;
 		
 		while(e<phin){
 			if(gcd(e,phin)==1){
@@ -25,7 +23,7 @@ public class rsa {
 		System.out.println("public key n = "+n+" e = "+e);
 		
 //		private key d => ed = 1 mod (p-1) (q-1)
-		double d = 1;
+		long d = 1;
 		while(d<phin){
 			if((d*e)%phin==1){
 				break;
@@ -35,18 +33,25 @@ public class rsa {
 		
 		System.out.println("private key d = "+d);
 		
-		double cipher = (int)Math.pow(msg*1.0, e*1.0);
-		cipher = cipher%n;
+		long cipher = powMod(msg,e,n);
 		System.out.println("cipher text: "+(int)cipher);
-		double plain = Math.pow(cipher, d)%n;
+		long plain = powMod(cipher,d,n);
 		System.out.println("plain text: "+(int)plain);
 		
 	}
 	
-	static int gcd(int a,int b){
+	static long gcd(long a,long b){
 		if(b==0)
 			return a;
 		return gcd(b,a%b);
+	}
+	
+	static long powMod(long a,long b,long m){
+		long ans = 1;
+		for(long i=0;i<b;i++){
+			ans=((ans%m)*(a%m))%m;
+		}
+		return ans;
 	}
 
 }
