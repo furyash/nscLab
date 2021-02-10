@@ -26,9 +26,9 @@ public class railFence {
         System.out.println("1)Encryption 2)Decryption 3)Exit");
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        System.out.println("Enter the message :");
-        String message = sc.nextLine();
+        System.out.println("Enter the message : ");
+        String message = sc.next();
         if (n == 1) encryption(message);
-        if (n == 2) decryption(message);  
+        if (n == 2) decryption(message); 
     }
 }
